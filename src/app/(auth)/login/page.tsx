@@ -5,6 +5,7 @@ import React from 'react';
 import { signIn } from 'next-auth/react';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
+import SocialLogin from './components/SocialLogin';
 
 const Login = () => {
     const router = useRouter();
@@ -95,6 +96,9 @@ const Login = () => {
                     Registration
                 </Link>
             </p>
+
+            {/* social Login */}
+            <SocialLogin></SocialLogin>
 
         </div>
     );
