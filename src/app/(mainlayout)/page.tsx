@@ -7,6 +7,7 @@ import ClientSlider from "@/components/home/ClientSlider";
 import Question from "@/components/home/Question";
 import MeetPartner from "@/components/home/MeetPartner";
 import Merchant from "@/components/home/Merchant";
+import FeatureCard from "@/components/home/FeatureCard";
 
 
 export default async function Home() {
@@ -55,6 +56,7 @@ export default async function Home() {
       </section>
 
       <Merchant></Merchant>
+      <FeatureCard></FeatureCard>
     </div>
   );
 }
