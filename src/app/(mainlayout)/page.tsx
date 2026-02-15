@@ -5,11 +5,15 @@ import Works from "@/components/works/Works";
 import OurServices from "@/components/home/ourServices/OurServices";
 import ClientSlider from "@/components/home/ClientSlider";
 import Question from "@/components/home/Question";
+import MeetPartner from "@/components/home/MeetPartner";
+import Merchant from "@/components/home/Merchant";
 
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
   console.log(session);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/partners/all`);
+  const partners = await res.json();
   const items = [
     {
       title: "How long does delivery take?",
@@ -41,9 +45,16 @@ export default async function Home() {
         <Question items={items}></Question>
 
         <div className='text-center mt-10 mb-24'>
-          <button className='btn bg-[#CAEB66]'>See More FAQ’s</button>
         </div>
       </section>
+
+      {/* partners */}
+      <section className='bg-base-200'>
+        <h3 className='lg:text-4xl text-2xl font-bold text-center mb-10'>Meet our partners</h3>
+        <MeetPartner partners={partners}></MeetPartner>
+      </section>
+
+      <Merchant></Merchant>
     </div>
   );
 }
