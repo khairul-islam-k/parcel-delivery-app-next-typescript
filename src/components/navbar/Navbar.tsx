@@ -11,7 +11,7 @@ const navLinks = [
   { name: "Send Parcel", href: "/sendParcel" },
   { name: "Tracking", href: "/tracking" },
   { name: "Coverage", href: "/coverage" },
-  { name: "Manage", href: "/manageData" },
+  { name: "Dashboard", href: "/dashboard" },
 ];
 
 const Navbar = () => {
