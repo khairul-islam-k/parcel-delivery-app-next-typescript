@@ -1,4 +1,5 @@
 export interface TParcel {
+  id: string;
   delivery_instruction: string;
   pickup_instruction: string;
   receiver_address: string;

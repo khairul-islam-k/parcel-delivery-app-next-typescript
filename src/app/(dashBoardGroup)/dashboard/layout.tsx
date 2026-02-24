@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const session = useSession();
 
     return (
-        <div className="h-screen flex bg-gray-200 overflow-hidden">
+        <div className="h-screen flex overflow-hidden">
             {/* Desktop Sidebar */}
             <div className="hidden md:flex">
                 <Sidebar />
@@ -43,7 +43,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 <Topbar toggle={() => setOpen(true)} />
 
                 {/* Header */}
-                <div className="hidden bg-white px-4 py-4 border-b md:flex justify-between items-center border">
+                <div className="hidden  bg-gray-200 px-4 py-4 border-b md:flex justify-between items-center border">
                     <div>
                         
                     </div>

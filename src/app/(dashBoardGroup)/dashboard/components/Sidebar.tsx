@@ -85,7 +85,7 @@ export default function Sidebar({ close }: TSidebarProps) {
   );
 
   return (
-    <div className="h-full w-64 bg-white shadow px-4 pb-4 overflow-auto">
+    <div className="h-full w-64  bg-gray-200 shadow px-4 pb-4 overflow-auto">
       <div className="h-20 flex justify-center items-center">
         <h3 className="text-2xl font-bold">Taste<span className="text-amber-500">Trail</span></h3>
       </div>
