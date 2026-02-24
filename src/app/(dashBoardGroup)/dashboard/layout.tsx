@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import { Bell } from "lucide-react";
 import {
     LogOutIcon,
 } from "lucide-react";
