@@ -70,6 +70,12 @@ export default function Sidebar({ close }: TSidebarProps) {
       href: "/dashboard/user/recipes",
       roles: ["user"],
     },
+    {
+      name: "My Parcels",
+      icon: BookOpen,
+      href: "/dashboard/user/myParcels",
+      roles: ["user"],
+    },
   ];
 
   const role = session?.data?.user?.role as string;
