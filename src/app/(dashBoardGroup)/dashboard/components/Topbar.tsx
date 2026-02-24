@@ -16,11 +16,8 @@ interface TSidebarProps {
 export default function Topbar({ toggle }: TSidebarProps) {
   const session = useSession();
   return (
-    <div className="bg-white shadow flex justify-between items-center py-2 px-4 md:hidden">
-      <div>
-        <h3 className="text-[16px] font-medium">Good Afternoon Asif</h3>
-        <p className="text-[14px]">12 June, 2026</p>
-      </div>
+    <div className="bg-white shadow flex justify-end items-center py-2 px-4 md:hidden">
+      
 
       <div className="flex items-center gap-2">
 
@@ -28,8 +25,8 @@ export default function Topbar({ toggle }: TSidebarProps) {
             session.data ? <div className="flex gap-4 items-center">
 
             <div>
-              <h3 className="font-semibold border w-24 truncate">{session.data?.user?.name}</h3>
-              <p className="text-end text-sm">HR</p>
+              <h3 className="font-semibold w-24 truncate">{session.data?.user?.name}</h3>
+              {/* <p className="text-end text-sm">HR</p> */}
             </div>
 
             <DropdownMenu>

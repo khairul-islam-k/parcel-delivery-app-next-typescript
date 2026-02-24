@@ -47,8 +47,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 {/* Header */}
                 <div className="hidden bg-white px-4 py-4 border-b md:flex justify-between items-center border">
                     <div>
-                        <h3 className="text-[16px] font-semibold">Good Afternoon Asif</h3>
-                        <p className="text-[14px]">13 June, 2026</p>
+                        
                     </div>
 
                     {/* user */}
@@ -57,7 +56,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
                             <div>
                                 <h3 className="font-semibold w-24 truncate">{session.data?.user?.name}</h3>
-                                <p className="text-end text-sm">HR</p>
                             </div>
 
                             <DropdownMenu>
