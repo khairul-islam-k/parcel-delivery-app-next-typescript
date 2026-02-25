@@ -2,17 +2,47 @@
 import { Button } from '@/components/ui/button';
 import { TParcel } from '@/types/parcel';
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 const MyParcels = () => {
     const [parcels, setParcels] = useState<TParcel[]>([]);
-    console.log(parcels);
+    const { data } = useSession();
+
+    const handleDelete = async (id: string) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/parcels/deleteById/${id}`)
+                    .then(res => {
+                        setParcels(parcels.filter(singleData => singleData.id !== id));
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    })
+
+            }
+        });
+
+    };
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/parcels/findBy/khairul@gmail.com`)
-            .then(data => setParcels(data.data))
-    }, [])
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/parcels/findBy/${data?.user?.email}`)
+            .then(res => setParcels(res.data))
+    }, [data])
     return (
         <div className="p-4">
             <h2 className="text-xl lg:text-2xl font-bold mb-4">📦 My Parcels</h2>
@@ -90,6 +120,7 @@ const MyParcels = () => {
                                         </Button>
                                     )}
                                     <Button size="sm"
+                                        onClick={() => handleDelete(parcel.id)}
                                         className="bg-red-500 cursor-pointer hover:bg-red-400"
                                     >
                                         Delete
@@ -99,7 +130,7 @@ const MyParcels = () => {
                         ))}
                         {parcels.length === 0 && (
                             <tr>
-                                <td colSpan={5} className="text-center py-4">
+                                <td colSpan={7} className="text-center py-4">
                                     No parcels found.
                                 </td>
                             </tr>

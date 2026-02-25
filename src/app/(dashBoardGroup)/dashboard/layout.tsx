@@ -39,7 +39,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             )}
 
             {/* Main Area */}
-            <div className="flex flex-col flex-1 overflow-hidden">
+            <div className="flex border-l-2 border-white flex-col flex-1 overflow-hidden">
                 <Topbar toggle={() => setOpen(true)} />
 
                 {/* Header */}
